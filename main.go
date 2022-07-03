@@ -190,11 +190,11 @@ func storeGphcrd(desc string, price float64, url string) {
 	desc = strings.ToLower(desc)
 	is6700 := strings.Contains(desc, "6700")
 	is3060 := strings.Contains(desc, "3060")
-	is3060ti := strings.Contains(desc, "ti")
+	is3060ti := is3060 && strings.Contains(url, "ti")
 	name := ""
 	if is6700 {
 		name = amd_6700xt
-	} else if is3060 && is3060ti {
+	} else if is3060ti {
 		name = nv_3060ti
 	} else if is3060 {
 		name = nv_3060
